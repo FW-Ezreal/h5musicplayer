@@ -1,0 +1,186 @@
+*{
+  margin:0;
+  padding:0;
+  font:14px/20px Helvetica, sans-serif, arial;
+}
+ul li{
+  list-style: none;
+}
+body{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+}
+.content-wrap{
+  height:100vh;
+  width:100vw;
+  padding-top:60px;
+  box-sizing:border-box;
+  background-color: rgba(0,0,0,.3);
+  //歌曲图片样式
+  .song-img{
+    width:50%;
+    height:0;
+    padding-top:50%;
+    position: relative;
+    margin:0 auto 40px;
+    .img-wrapper{
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      img{
+        height:100%;
+        width:100%;
+      }
+    }
+  }
+  //歌曲信息样式
+  .song-info{
+    height:126px;
+    width:100%;
+    text-align: center;
+    .song-name{
+      text-overflow: ellipsis;
+      overflow:hidden;
+      white-space:nowrap;
+      font-size:24px;
+      line-height:36px;
+      color:rgba(255,255,255,.86);
+      margin-bottom: 8px;
+    }
+    .singer-name,
+    .album-name{
+      font-size: 11px;
+      line-height: 16px;
+      color:rgba(255,255,255,.6);
+      margin-bottom: 6px;
+    }
+  }
+  //进度条样式
+  .play-area{
+    display:flex;
+    .cur-time,.all-time{
+      width:60px;
+      height:40px;
+      color:#fff;
+      text-align:center;
+      line-height:40px;
+    }
+    .pro-wrapper{
+      flex:1;
+      position:relative;
+      overflow:hidden;
+      padding-left: 3px;
+      padding-right: 3px;
+      .pro-bottom,.pro-top{
+        width:100%;
+        height:1px;
+        position:absolute;
+        top:20px;
+      }
+      .pro-bottom{
+        background-color: rgba(255,255,255,.6);
+      }
+      .pro-top{
+        transform: translateX(-100%);
+        background-color: #fff;
+        .slide-point{
+          height:21px;
+          width:21px;
+          position:absolute;
+          top:-10px;
+          right:-10px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          &::after{
+            height:5px;
+            width:5px;
+            content:"";
+            background-color: #fff;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+  //控制区域样式
+  .play-control{
+    position:absolute;
+    bottom:0;
+    height:60px;
+    width:100%;
+    background-color: rgba(0,0,0,.2);
+    display:flex;
+    .btn-wrap{
+      flex:1;
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      background-position:50%;
+    }
+    .like-btn{
+      background-image: url(/img/icon-like.png);
+      &.liked{
+        background-image: url(/img/icon-like-solid.png);
+      }
+    }
+    .prev-btn{
+      background-image: url(/img/icon-prev.png);
+    }
+    .play-btn{
+      background-image: url(/img/icon-play.png);
+      &.playing{
+        background-image: url(/img/icon-pause.png);
+      }
+    }
+    .next-btn{
+      background-image: url(/img/icon-next.png);
+    }
+    .list-btn{
+      background-image: url(/img/icon-list.png);
+    }
+  }
+}
+.play-list{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  transform: translateY(100%);
+  transition: transform 200ms ease-in;
+  &.show{
+    transform: translateY(0);
+  }
+  .line-head, .close-btn{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: rgba(0, 0, 0, .86);
+  }
+  .close-btn{
+    border-top: 1px solid rgba(0, 0, 0, .1);
+  }
+  li{
+    height: 20px;
+    padding: 10px;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    h3{
+      color: rgba(0, 0, 0, .86);
+      span{
+        font-size: 12px;
+        color: rgba(0, 0, 0, .6);
+      }
+    }
+    &.playing{
+      h3{
+        color: rgba(255, 0, 0, .86);
+        span{
+          color: rgba(255, 0, 0, .6);
+        }
+      }
+    }
+  }
+}

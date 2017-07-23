@@ -1,0 +1,21 @@
+{
+  "name": "h5musicplayer",
+  "version": "1.0.0",
+  "description": "this is a music player",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-connect": "^5.0.0",
+    "gulp-less": "^3.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html5",
+    "music",
+    "player"
+  ],
+  "author": "lixin",
+  "license": "ISC"
+}
